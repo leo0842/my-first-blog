@@ -1,0 +1,23 @@
+{% extends 'sungsani/base.html' %}
+
+{% block content %}
+    {% if posts %}
+    <ul>
+    {% for post in posts %}
+        <div>
+            
+            <li><a href="{% url 'sungsani:post_detail' pk=post.pk %}" style="font-size: 30px;">{{ post.title }}</a> </li>
+            <span style="color: green">published: {{ post.published_date }}</span><br>
+            {% if post.revised_date %}
+                <span style="color: rgb(12, 80, 12);">revised: {{ post.revised_date }}</span><br>
+                {% endif %}
+            <span> preview: <span style="color:cornflowerblue">{{ post.summary }}..</span> </span>
+            <hr>
+            </div>
+
+    {% endfor %}
+    </ul>
+    {% else %}
+        <p> No posts exist</p>
+    {% endif %}
+{% endblock %}
