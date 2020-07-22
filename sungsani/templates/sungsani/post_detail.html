@@ -2,13 +2,18 @@
 
 {% block content %}
     <div class="post">
-        {% if post.published_date %}
+        {% if post.revised_date %}
             <div class="date">
                 {{ post.published_date }}
             </div>
-        {% endif %}
-        {% if post.revised_date %}
-        <span style="color: rgb(12, 80, 12);">revised: {{ post.revised_date }}</span>
+            <span style="color: rgb(12, 80, 12);">revised: {{ post.revised_date }}</span>
+        {% elif post.published_date %}
+        <div class="date">
+            {{ post.published_date }}
+        </div>
+        {% else %}
+        <a class="btn btn-default" href="{% url 'sungsani:post_publish' pk=post.pk %}">Publish</a>
+        
         {% endif %}
         
         <h1>{{ post.title }}       
@@ -16,5 +21,6 @@
                 <a class="btn btn-default" href="{% url 'sungsani:post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a></h1>
             {% endif %}
         <p>{{ post.text|linebreaksbr }}</p>
+        <a class="btn btn-default" href="{% url 'sungsani:post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
     </div>
 {% endblock %}
