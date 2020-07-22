@@ -10,9 +10,9 @@
     <body> 
         <div class="page-header">
             {% if user.is_authenticated %}
-        <a href="{% url 'sungsani:post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                <a href="{% url 'sungsani:post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                <a href="{% url 'sungsani:post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
             {% endif %}
-            
         <h1><a href="">Sungsani blog</a></h1>
     </div>
     <div class="content container">
@@ -23,6 +23,6 @@
             </div>
         </div>
     </div>
-        <p style="padding-left: 30px;"><a href="..">뒤로가기</a></p>
+        <p style="padding-left: 30px;"><a href="{% url 'sungsani:post_list' %}">뒤로가기</a></p>
     </body>
 </html>
