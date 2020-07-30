@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>Grade Conversion</title>
+  </head>
+  <body>
+    <form action='{% url "testmania:grade" %}' method="get">
+      <div>
+        {{ form.input_grade }}
+      </div>
+      <div>
+        {{ form.output_grade }}
+      </div>
+      <input type="submit" value="Convert"/>
+   </form>
+  </body>
+</html>
